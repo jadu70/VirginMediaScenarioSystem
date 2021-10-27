@@ -1,0 +1,60 @@
+﻿@model List<VM.Models.Scenario>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="accordion">
+    @for (var i = 0; i < Model.Count(); i++)
+    {
+        var scenario = Model[i];
+        <div class="card">
+            <div class="card-header" id=@($"heading{i}")>
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target=@($"#collapse{i}") aria-expanded="false" aria-controls=@($"collapse{i}")>
+                                @scenario.FullName
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        @scenario.CreationDateForDisplay
+                    </div>
+                </div>
+            </div>
+
+            <div id=@($"collapse{i}") class="collapse" aria-labelledby=@($"heading{i}") data-parent="#accordion">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="row col-md-6">
+                            <label class="col-md-3">UserId:</label>
+                            <div>@scenario.UserId</div>
+                        </div>
+                        <div class="row col-md-6">
+                            <label class="col-md-3">Sample Date:</label>
+                            <div>@scenario.SampleDateForDisplay</div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-4">
+                            <div>Number of Months</div>
+                            <div>@scenario.NoOfMonths</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div>Market Id</div>
+                            <div>@scenario.MarketId</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div>Network LayerId</div>
+                            <div>@scenario.NetworkLayerId</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    
+</div>
+
+

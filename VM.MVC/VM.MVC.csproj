@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VM.Services.Abstraction\VM.Services.Abstraction.csproj" />
+    <ProjectReference Include="..\VM.Services.Implementation\VM.Services.Implementation.csproj" />
+  </ItemGroup>
+
+</Project>
